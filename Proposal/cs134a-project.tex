@@ -98,7 +98,7 @@
 \newpage
 
 \section{Purpose}
-YouTube becomes more lucrative targets for spammers hoping to attract unsuspecting users to malicious websites, where a variety of threats such as scams (phishing, e-commerce) and malware can be found. We demonstrate how such of these can be tracked over time using prime SVM and Neural Network Model. Based on both models, we will estimate how these model work with our dataset. 
+YouTube becomes more lucrative targets for spammers hoping to attract unsuspecting users to malicious websites, where a variety of threats such as scams (phishing, e-commerce) and malware can be found. We demonstrate how such of these can be tracked over time using prime SVM and Neural Network Model. Based on both models, we will estimate how these models work with our dataset. 
 \section{Dataset Collection}
 Following the lead of earlier related YouTube research, a data set was collected in order to permit the investigation of contemporary spam comment activity.These data are retrieved from YouTube API which provides access to video and user information. Data retrieval ran from October 31st, 2011 to January 17th, 2012.\\
 
@@ -139,6 +139,7 @@ Following the lead of earlier related YouTube research, a data set was collected
 Our methodology requires the generation of a network to represent the comment posting activity of users to a set of videos.  Initially, the focus of the evaluation is English-language spam comments. Therefore we need to specify our dataset in only English. Also, we might try tokenization, removing stop words, finding the inclusion of URLs etc. in preparation.
 
 \section{Methodologies}
+We will implement both Support Vector Machine and Neural Network models in our final project to classify the spam comment. The optional model comes Network Motif Analysis, which is generated in the previous research of Youtube spam analysis [Derek O Callaghan, Martin Harrigan, Joe Carthy, P adraig Cunningham]. We will implemented it if we have enough time, otherwise we will just add it into our experimentation.
 \begin{enumerate}
 \item SVM \\
 Our focus is how SVM can have good practical performance scaled to work with large training sets. We are going to implement algorithms use variant of primal stochastic gradient descent(SGD).
@@ -179,17 +180,22 @@ $n$ and $bn$ is a vector of dimension $gc$.\\
 Let ${w_{1}, . . . , w_{n}}$ be a set of weight vectors derived from a linear model. Let ${\pi_{1}, . . . , \pi_{g}}$ be a random partition of the set of feature indices ${1, 2, . . . , |V |}$  into g equally-sized groups. For each class $c$, associate $g$ hidden units ${h_{1}^{(c)}, . . . , h_{g}^{(c)}}$.
  For all $i \in [1, g]$ and $j \in [1, |\pi(i) |]$, the weight of the connection between $h_{1}^{(c)}$ and the input unit $x_{\pi_{j}}^{(i)} $ is given by $(W_{c})_{\pi_{j}^{i}}$
  
- \item Network Motif Analysis
+\item Network Motif Analysis
 \end{enumerate}
 
-\section{Evaluation}
-
-\section{Experimentation}
+\section{Experiments and Result}
 \begin{enumerate}
-\item Support Vector Machines
-\item Neural Network
-\item Comparison with baseline algorithm 
+\item Support Vector Machines \\
+Test primal SVM accuracy with different training set size, learning rate and features.
+\item Neural Network \\
+\item Comparison with baseline algorithms \\
+The baseline algorithms include Multinomial Naive Bayes and Max Entropy.
+\item Comparison with Network Motif Analysis 
 \end{enumerate}
-	
+
+\section{References}
+\noindent O'Callaghan, Derek, et al. "Network Analysis of Recurring YouTube Spam Campaigns." ICWSM. 2012.\\
+\noindent Menon, Aditya Krishna. "Large-scale support vector machines: algorithms and theory." Research Exam, University of California, San Diego (2009): 1-17.\\
+\noindent Chapelle, Olivier. "Training a support vector machine in the primal." Neural Computation 19.5 (2007): 1155-1178.\\
 %%% End document
 \end{document}
