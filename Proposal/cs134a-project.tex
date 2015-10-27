@@ -170,7 +170,7 @@ For example, a neural network structure for 3 classes, 8 features and 2 feature 
 \begin{figure}[h]
 \includegraphics[width = 10cm]{nn}
 \end{figure}			        
-\end{enumerate}
+
 
 Let $n$ be the number of output units, $g$ the number of feature groups per class and $gn$ the number of hidden units given by the product.
 The output of the network for an input $x$ is:
@@ -178,6 +178,18 @@ $$ f(x) = W_{o}tanh(W_{h}x + bh) + b_{o}$$ where $W_{o}$ is a $n \times gn$ matr
 $n$ and $bn$ is a vector of dimension $gc$.\\
 Let ${w_{1}, . . . , w_{n}}$ be a set of weight vectors derived from a linear model. Let ${\pi_{1}, . . . , \pi_{g}}$ be a random partition of the set of feature indices ${1, 2, . . . , |V |}$  into g equally-sized groups. For each class $c$, associate $g$ hidden units ${h_{1}^{(c)}, . . . , h_{g}^{(c)}}$.
  For all $i \in [1, g]$ and $j \in [1, |\pi(i) |]$, the weight of the connection between $h_{1}^{(c)}$ and the input unit $x_{\pi_{j}}^{(i)} $ is given by $(W_{c})_{\pi_{j}^{i}}$
+ 
+ \item Network Motif Analysis
+\end{enumerate}
+
+\section{Evaluation}
+
+\section{Experimentation}
+\begin{enumerate}
+\item Support Vector Machines
+\item Neural Network
+\item Comparison with baseline algorithm 
+\end{enumerate}
 	
 %%% End document
 \end{document}
