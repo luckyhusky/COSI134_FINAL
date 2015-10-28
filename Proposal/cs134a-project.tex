@@ -167,6 +167,14 @@ $$ \eta^{(t)} = \frac{1}{\alpha(t_{0} + t)}$$
 \end{enumerate}
 
 \item Neural Network  \\
+Instead of using bag-of-word representation, we plan to use word-cluster representation. Brown clustering algorithm introduces a good way to do clustering. \\
+\begin{enumerate}
+
+\item Brown Clustering \\
+Word embedding is very useful in deep learning area that mapped words to vectors in a low dimensional space, comparing to the vocabulary size. One of popular approaches such is Brown clustering algorithm. Brown clustering is an agglomerative clustering algorithm that clusters words based on which words precede or follow them. Each word is initially assigned to its own cluster. Then we will consider merging each pair of clusters. Two words are merged that have similar probabilities of preceding and following words. Clustering proceeds until all words are in one big cluster. This model has the same general form as a hidden Markov model. Given cluster membership indicators $c_i$ for the tokens $w_i$ in a text, the probability of the $w_i$ given $w_{i-1}$ is given by\\
+$$P(w_i | w_{i-1}) = P(c_i|c_{i-1})P(w_i|c_i)$$
+\item Neural Network Language Model\\
+Neural neworks are typically organized in layers. Layers are made up of a number of interconnected 'nodes' which contain an 'activation function'. Patterns are presented to the network via the 'input layer', which communicates to one or more 'hidden layers' where the actual processing is done via a system of weighted 'connections'. The hidden layers then link to an 'output layer' where the answer is output as shown in the graphic below. 
 For example, a neural network structure for 3 classes, 8 features and 2 feature groups per class:
 \begin{figure}[h]
 \includegraphics[width = 10cm]{nn}
@@ -179,8 +187,12 @@ $$ f(x) = W_{o}tanh(W_{h}x + bh) + b_{o}$$ where $W_{o}$ is a $n \times gn$ matr
 $n$ and $bn$ is a vector of dimension $gc$.\\
 Let ${w_{1}, . . . , w_{n}}$ be a set of weight vectors derived from a linear model. Let ${\pi_{1}, . . . , \pi_{g}}$ be a random partition of the set of feature indices ${1, 2, . . . , |V |}$  into g equally-sized groups. For each class $c$, associate $g$ hidden units ${h_{1}^{(c)}, . . . , h_{g}^{(c)}}$.
  For all $i \in [1, g]$ and $j \in [1, |\pi(i) |]$, the weight of the connection between $h_{1}^{(c)}$ and the input unit $x_{\pi_{j}}^{(i)} $ is given by $(W_{c})_{\pi_{j}^{i}}$
+
+
+\item Network Motif Analysis \\
+Network motifs are structural patterns in the form of interconnected n-node subgraphs that are considered to be inherent in many varieties of network, such as biological, technological and sociological networks. They are often used for the comparison of said networks, and can also indicate certain network characteristics.
+\end{enumerate}
  
-\item Network Motif Analysis
 \end{enumerate}
 
 \section{Experiments and Result}
