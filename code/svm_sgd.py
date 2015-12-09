@@ -9,6 +9,7 @@ class SVM_SGD(Classifier):
         self.n_features = n_features
         self.learning_rate = 0.0001
         self.weight = np.zeros((1, n_features))
+        self.iter = 10
         self.batch_size = 1
         self.cnt_error = 0
         self.cnt_train = 0
@@ -23,14 +24,16 @@ class SVM_SGD(Classifier):
     model = property(get_model, set_model)
 
     def train(self, train_x, train_y):
+        # Calcualte the num of batches
         num_batches = len(train_x) / self.batch_size
-        for i in range(5):
+        for i in range(self.iter):
+            # shuffle(train_x)
             for j in range(num_batches):
                 # Find the batch of the 
                 batch_x = train_x[j * self.batch_size: (j + 1) * self.batch_size, :]
                 batch_y = train_y[j * self.batch_size: (j + 1) * self.batch_size, :]
                 self.train_sgd(batch_x, batch_y)
-         
+        
 
     def train_sgd(self, batch_x, batch_y):
         for i in range(len(batch_x)):

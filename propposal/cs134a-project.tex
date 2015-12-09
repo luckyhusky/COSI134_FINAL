@@ -136,7 +136,11 @@ Following the lead of earlier related YouTube research, a data set was collected
 \end{table}
 
 \section{Preprocessing}
-Our methodology requires the generation of a network to represent the comment posting activity of users to a set of videos.  Initially, the focus of the evaluation is English-language spam comments. Therefore we need to specify our dataset in only English. Also, we might try tokenization, removing stop words, finding the inclusion of URLs etc. in preparation.
+Our methodology requires the generation of a network to represent the comment posting activity of users to a set of videos.  Initially, the focus of the evaluation is English-language spam comments. \\
+
+The original dataset is way to large for us to train our model and go on with experiments. Therefore, we prepared the datasets with 100000 comments. This  dataset will be our original dataset\\
+
+Also, to extract the English comments in the original dataset, we included the ENCHANT package in our preprocessing. We tried two different methods to extract the English comments. For the first one, we put the whole sentence for ENCHANT to check and collect those with only exact English words. This method works poor for the reason that it only extracts the simple comment with less words like "Good!". Also, most of the comments are same. Therefore, we tried the second method to check the percentage of English words in the sentence. Before we do the extraction, we included NLTK tokenization tool to tokenize the comment first.
 
 \section{Methodologies}
 We will implement both Support Vector Machine and Neural Network models in our final project to classify the spam comment. The optional model comes Network Motif Analysis, which is generated in the previous research of Youtube spam analysis [Derek O Callaghan, Martin Harrigan, Joe Carthy, P adraig Cunningham]. We will implemented it if we have enough time, otherwise we will just add it into our experimentation.
@@ -187,10 +191,6 @@ $$ f(x) = W_{o}tanh(W_{h}x + bh) + b_{o}$$ where $W_{o}$ is a $n \times gn$ matr
 $n$ and $bn$ is a vector of dimension $gc$.\\
 Let ${w_{1}, . . . , w_{n}}$ be a set of weight vectors derived from a linear model. Let ${\pi_{1}, . . . , \pi_{g}}$ be a random partition of the set of feature indices ${1, 2, . . . , |V |}$  into g equally-sized groups. For each class $c$, associate $g$ hidden units ${h_{1}^{(c)}, . . . , h_{g}^{(c)}}$.
  For all $i \in [1, g]$ and $j \in [1, |\pi(i) |]$, the weight of the connection between $h_{1}^{(c)}$ and the input unit $x_{\pi_{j}}^{(i)} $ is given by $(W_{c})_{\pi_{j}^{i}}$
-
-
-\item Network Motif Analysis \\
-Network motifs are structural patterns in the form of interconnected n-node subgraphs that are considered to be inherent in many varieties of network, such as biological, technological and sociological networks. They are often used for the comparison of said networks, and can also indicate certain network characteristics.
 \end{enumerate}
  
 \end{enumerate}
@@ -198,12 +198,30 @@ Network motifs are structural patterns in the form of interconnected n-node subg
 \section{Experiments and Result}
 \begin{enumerate}
 \item Support Vector Machines \\
-Test primal SVM accuracy with different training set size, learning rate and features.
+\begin{table}[h!]
+  \begin{center}
+    \caption{SVM accuracy with training data set 50000 and learning rate 0.0001}
+    \label{tab:table1}
+    \begin{tabular}{ccccccccc}
+    \\
+    \hline
+     SGD PRIMAL SVM CLASSIFIER & 93.38\% \\
+      \hline
+     LINEAR SVM CLASSIFIER(SKLEARN) & 92.61\% \\
+      \hline
+     SGD CLASSIFIER(SKLEARN) & 93.32\%  \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+Here is a figure with different training dataset associated with accuracy in the three model
+\begin{figure}[h]
+\includegraphics[width = 10cm]{svm}
+\end{figure}
 \item Neural Network \\
-\item Comparison with baseline algorithms \\
-The baseline algorithms include Multinomial Naive Bayes and Max Entropy.
-\item Comparison with Network Motif Analysis 
 \end{enumerate}
+
 
 \section{References}
 \noindent O'Callaghan, Derek, et al. "Network Analysis of Recurring YouTube Spam Campaigns." ICWSM. 2012.\\

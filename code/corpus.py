@@ -85,11 +85,11 @@ class CSVCorpus(Corpus):
                         
 
         # if the prepared dataset exists, read the prepared one
-        if(os.path.isfile("../data/prepared.csv")):
-             with open("../data/prepared.csv", "r") as file:
+        if(os.path.isfile("../data/prepared60000.csv")):
+             with open("../data/prepared60000.csv", "r") as file:
                 for comment in unicode_csv_reader(file):
                     self.documents.append(document_class(comment[0], comment[1], datafile))
-                # print(len(self.documents))
+                print(len(self.documents))
                 self.featurize()
         else:
             with open(datafile, "r") as file:
@@ -143,6 +143,6 @@ class CSVCorpus(Corpus):
 
 class CommentsCorpus(CSVCorpus):
     """A collection of comments post"""
-    def __init__(self, datafiles="../data/comments100000.csv",
+    def __init__(self, datafiles="../data/comments300000.csv",
                  document_class=Document):
         super(CommentsCorpus, self).__init__(datafiles, document_class)
